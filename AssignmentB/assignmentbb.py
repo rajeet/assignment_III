@@ -45,12 +45,8 @@ class Academy:
 
 
         print("Thank you for registering")
-        k = input("0 for back: \n")
-        if k == '0':
-            self.opening_page()
-        else:
-            print("Terminating")
-            sys.exit()
+        self.ifelse()
+
 
     def display_students(self):
         with open('studentdata.csv', mode='r') as read_student_data:
@@ -63,7 +59,7 @@ class Academy:
                 print(f"{row['Student_Name']} || {row['Age']} || {row['Age']} || {row['Contact']} || {row['Deposit']} || {row['Course']}")
         line_count += 1
                     
-
+        self.ifelse()
 
 
 
@@ -73,10 +69,29 @@ class Academy:
 
 
 
+        self.ifelse()
+
+
+
 
     def delete_students(self, contact):
         print(contact)
+        with open("studentdata.csv") as csvfile:
+            reader = csv.DictReader(csvfile)
+            
+                        
+
         
+        self.ifelse()
+    
+    def ifelse(self):
+        print("_" * 50)
+        k = input("0 for back: \n")
+        if k == '0':
+            self.opening_page()
+        else:
+            print("Terminating")
+            sys.exit()
 
     def opening_page(self):
         print("Welcome to Academy")
@@ -105,7 +120,14 @@ class Academy:
             print("_" *50)
             self.update_students(contact)
         elif takeinput == 5:
-            
+            print("Deleting Data require some inputs....")
+            contact = int(input("Enter the student contact number for deleting details: \n"))
+            print("_"*50)
+            self.delete_students(contact)
+        else:
+            print("Invalid input entered \nTerminating program.......")
+            sys.exit()
+
 
 
 
