@@ -101,8 +101,6 @@ class Academy:
         self.ifelse()
 
     def update_students(self, contact):
-        print(contact)
-
         data = dict()
         fake = []
         input_file = csv.DictReader(open("studentdata.csv"))
@@ -162,13 +160,13 @@ class Academy:
         print(contact)
         input_file = csv.DictReader(open("studentdata.csv"))
         for row in input_file:
+            for key in row:
+                print(row[key])
             deletedata.append(row)
         
         for i in deletedata:
-            print (i)
             if int(i["Contact"]) == contact:
                 deletedata.remove(i)
-        print(deletedata)
         with open("newstudentdata.csv", 'w', newline='') as student_file:
             fieldnames = ['Student_Name', 'Age', 'Contact', 'Deposit', 'Course']
             writer = csv.DictWriter(student_file, fieldnames=fieldnames)
