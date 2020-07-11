@@ -161,7 +161,7 @@ class Academy:
         input_file = csv.DictReader(open("studentdata.csv"))
         for row in input_file:
             for key in row:
-                print(row[key])
+                print(f"{key}: {row[key]}")
             deletedata.append(row)
         
         for i in deletedata:
@@ -174,7 +174,7 @@ class Academy:
             writer.writeheader()
             for i in deletedata:
                     writer.writerow({'Student_Name': i['Student_Name'], 'Age': i['Age'], 'Contact': i["Contact"], 'Deposit': i['Deposit'], 'Course': i['Course']})     
-            
+        print("_"*50)
         print("Data Deleted")
         old = "studentdata.csv"
         new = "newstudentdata.csv"
