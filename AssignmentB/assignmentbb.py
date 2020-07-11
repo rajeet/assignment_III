@@ -2,8 +2,7 @@ import csv
 import os
 import sys
 from tabulate import tabulate
-from tempfile import NamedTemporaryFile
-import shutil
+
 
 
 class Academy:
@@ -230,10 +229,6 @@ class Academy:
         else:
             print("Invalid input entered \nTerminating program.......")
             sys.exit()
-
-
-
-
 
 if __name__ == "__main__":
     obj = Academy()
