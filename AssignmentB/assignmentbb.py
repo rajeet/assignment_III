@@ -1,5 +1,6 @@
 import csv
 import sys
+from tabulate import tabulate
 
 class Academy:
     def course_of_content(self):
@@ -49,20 +50,24 @@ class Academy:
 
 
     def display_students(self):
+        
+        # edit here
+        table = []
+
+        # edit ends here 
+
         with open('studentdata.csv', mode='r') as read_student_data:
              csv_reader = csv.DictReader(read_student_data)
              line_count = 0
              for row in csv_reader:
                 if line_count == 0:
-                    print(f'{", ".join(row)}')
+                    table.append(list(row))
                     line_count += 1
-                print(f"{row['Student_Name']} || {row['Age']} || {row['Age']} || {row['Contact']} || {row['Deposit']} || {row['Course']}")
+                dat = [row['Student_Name'], row['Age'], row['Contact'], row['Deposit'], row['Course']]
+                table.append(dat)
         line_count += 1
-                    
+        print(tabulate(table))
         self.ifelse()
-
-
-
 
     def update_students(self, contact):
         print(contact)
